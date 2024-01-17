@@ -13,7 +13,7 @@ class Body {
 }
 
 const bodies = [
-    new Body('small', 10, 100, 300, 0, -10),
+    new Body('small', 10, 100, 250, 0, -18),
     new Body('big', 30, 250, 250)
 ]
 
@@ -33,6 +33,7 @@ bodies.forEach(b => {
 bodyInteraction = (a, b) => {
     const newNode = a.el.cloneNode();
     universe.append(newNode);
+    newNode.classList.add('hidden');
     const xDist = b.x - a.x;
     const yDist = a.y - b.y;
     const r = Math.sqrt( xDist**2 + yDist**2);

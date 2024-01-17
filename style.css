@@ -8,7 +8,18 @@
 
 .planet{
     background-color: white;
-    
     border-radius: 100%;
     position: absolute;
+    
+}
+
+.hidden {
+     opacity: 0;
+     animation: fadeOut 1s;    
+     animation-iteration-count: 1; 
+  }
+
+@keyframes fadeOut {
+    0% {opacity: 1}
+    99% {opacity: 0;}
 }
