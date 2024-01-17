@@ -14,7 +14,7 @@ class Body {
 }
 
 const bodies = [
-    new Body('small', 5, 10, 150, 250, 0, -9),
+    new Body('small', 5, 10, 150, 250, 0, 12),
     new Body('small2', 5, 10, 450, 250, 0, -12),
     new Body('big', 15, 3000, 250, 250)
 ]

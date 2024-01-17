@@ -15,7 +15,7 @@
 
 .hidden {
      opacity: 0;
-     animation: fadeOut 2s;    
+     animation: fadeOut 4s;    
   }
 
 @keyframes fadeOut {
