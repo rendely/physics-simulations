@@ -13,7 +13,7 @@ class Body {
 }
 
 const bodies = [
-    new Body('small', 10, 100, 270, 0, -10),
+    new Body('small', 10, 100, 300, 0, -10),
     new Body('big', 30, 250, 250)
 ]
 
@@ -33,22 +33,31 @@ bodies.forEach(b => {
 bodyInteraction = (a, b) => {
     const newNode = a.el.cloneNode();
     universe.append(newNode);
-    const xDist = a.x - b.x;
+    const xDist = b.x - a.x;
     const yDist = a.y - b.y;
     const r = Math.sqrt( xDist**2 + yDist**2);
-    const theta = Math.atan(yDist / xDist);
+    const theta = Math.atan2(yDist, xDist);
     const xAcc = 300/r*Math.cos(theta);
-    const yAcc = 300/r*Math.sin(theta);
+    const yAcc = -300/r*Math.sin(theta);
     a.vx += xAcc;
     a.vy += yAcc;
     a.x += a.vx;
     a.y += a.vy;
     a.el.style.top = a.y + 'px';
     a.el.style.left = a.x + 'px';
-    console.table({xDist, yDist, theta, deg: theta*180/Math.PI, xAcc, yAcc})
+    console.table({
+        deg: theta*180/Math.PI, 
+        sin: Math.sin(theta),
+        cos: Math.cos(theta),
+        // xDist, 
+        // yDist, 
+        // theta, 
+        // xAcc, 
+        // yAcc
+    })
 }
 
-const maxCycles = 300/20;
+const maxCycles = 3000/20;
 let i = 0;
 main = () => {
     bodyInteraction(bodies[0], bodies[1]);
