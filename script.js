@@ -1,8 +1,9 @@
 const universe = document.getElementById('universe');
 
 class Body {
-    constructor(id, r, m, x, y, vx=0, vy=0) {
+    constructor(id, color='white', r, m, x, y, vx=0, vy=0) {
       this.id = id;
+      this.color = color;
       this.r = r;
       this.m = m;
       this.x = x;
@@ -14,10 +15,10 @@ class Body {
 }
 
 const bodies = [
-    new Body('small', 5, 10, 150, 250, 0, 12),
-    new Body('small2', 5, 10, 450, 250, 0, -12),
+    new Body('small', 'red', 5, 10, 150, 250, 0, 12),
+    new Body('small2', 'blue', 5, 10, 450, 250, 0, -12),
     // new Body('small3', 5, 10, 100, 250, 0, 12),
-    new Body('big', 15, 3000, 250, 250)
+    new Body('big', 'white', 15, 3000, 250, 250)
 ]
 
 bodies.forEach(b => {
@@ -28,6 +29,7 @@ bodies.forEach(b => {
     newDiv.style.left = b.x - b.r/2 + 'px';
     newDiv.style.width = b.r*2 + 'px';
     newDiv.style.height = b.r*2 + 'px';
+    newDiv.style.backgroundColor = b.color;
     b.el = newDiv;
     universe.appendChild(newDiv);
 })
