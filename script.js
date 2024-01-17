@@ -16,6 +16,7 @@ class Body {
 const bodies = [
     new Body('small', 5, 10, 150, 250, 0, 12),
     new Body('small2', 5, 10, 450, 250, 0, -12),
+    // new Body('small3', 5, 10, 100, 250, 0, 12),
     new Body('big', 15, 3000, 250, 250)
 ]
 
@@ -44,10 +45,10 @@ bodyInteraction = (a, b) => {
     const yAcc = -1/r*Math.sin(theta)*b.m/a.m;
     a.vx += xAcc;
     a.vy += yAcc;
-    if (r <= a.r + b.r+15) {
-        a.vx = 0;
-        a.vy = 0;
-    }
+    // if (r <= a.r + b.r+15) {
+    //     a.vx = 0;
+    //     a.vy = 0;
+    // }
     a.x += a.vx;
     a.y += a.vy;
     a.el.style.top = a.y - a.r/2 + 'px';
