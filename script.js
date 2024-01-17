@@ -1,4 +1,11 @@
 const universe = document.getElementById('universe');
+let pause = false;
+document.addEventListener('keydown', (e) => pause = true);
+document.addEventListener('keyup', (e) => {
+    pause = false;
+    main()
+});
+
 
 class Body {
     constructor(id, color='white', r, m, x, y, vx=0, vy=0) {
@@ -17,7 +24,7 @@ class Body {
 const bodies = [
     new Body('small', 'red', 5, 10, 150, 250, 0, 12),
     new Body('small2', 'blue', 5, 10, 450, 250, 0, -12),
-    new Body('small3', 'orange',  5, 10, 100, 250, 0, 12),
+    // new Body('small3', 'orange',  5, 10, 100, 250, 0, 12),
     new Body('big', 'white', 15, 3000, 250, 250)
 ]
 
@@ -70,12 +77,12 @@ bodyInteraction = (a, b) => {
 const maxCycles = 10000/20;
 let i = 0;
 main = () => {
+    if (pause) return;
     bodies.forEach( a => {
         bodies.forEach(b => {
             if (a !== b) bodyInteraction(a, b);
         })
-    })
-    
+    })    
     i++
     if (i < maxCycles) setTimeout(main, 50)
 }
