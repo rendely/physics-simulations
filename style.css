@@ -1,0 +1,15 @@
+#universe{
+    background-color: black;
+    height: 500px;
+    width: 500px;
+    margin: 50px;
+    position: relative;
+}
+
+.planet{
+    background-color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    position: absolute;
+}
