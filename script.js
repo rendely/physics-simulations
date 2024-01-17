@@ -17,7 +17,7 @@ class Body {
 const bodies = [
     new Body('small', 'red', 5, 10, 150, 250, 0, 12),
     new Body('small2', 'blue', 5, 10, 450, 250, 0, -12),
-    // new Body('small3', 5, 10, 100, 250, 0, 12),
+    new Body('small3', 'orange',  5, 10, 100, 250, 0, 12),
     new Body('big', 'white', 15, 3000, 250, 250)
 ]
 

@@ -1,8 +1,14 @@
-#universe{
+html, body {
     background-color: black;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#universe{    
     height: 500px;
     width: 500px;
-    margin: 50px;
     position: relative;
 }
 
