@@ -14,8 +14,8 @@ class Body {
 }
 
 const bodies = [
-    new Body('small', 5, 10, 150, 250, 0, -18),
-    new Body('small2', 5, 10, 450, 250, 0, -18),
+    new Body('small', 5, 10, 150, 250, 0, -9),
+    new Body('small2', 5, 10, 450, 250, 0, -12),
     new Body('big', 15, 3000, 250, 250)
 ]
 
@@ -40,8 +40,8 @@ bodyInteraction = (a, b) => {
     const yDist = a.y - b.y;
     const r = Math.sqrt( xDist**2 + yDist**2);
     const theta = Math.atan2(yDist, xDist);
-    const xAcc = 3/r*Math.cos(theta)*b.m/a.m;
-    const yAcc = -3/r*Math.sin(theta)*b.m/a.m;
+    const xAcc = 1/r*Math.cos(theta)*b.m/a.m;
+    const yAcc = -1/r*Math.sin(theta)*b.m/a.m;
     a.vx += xAcc;
     a.vy += yAcc;
     if (r <= a.r + b.r+15) {
