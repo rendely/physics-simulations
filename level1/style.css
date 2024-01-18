@@ -11,7 +11,17 @@ html, body {
     height: 500px;
     width: 500px;
     position: relative;
+    display: flex;
 }
+
+svg {
+    transform: scaleY(-1);
+  }
+  
+  /* Re-flip all <text> element descendants to their original side up. */
+  svg text {
+    transform: scaleY(-1);
+  }
 
 .planet{
     background-color: white;
