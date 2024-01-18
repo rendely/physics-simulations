@@ -1,4 +1,14 @@
 const universe = document.getElementById('universe');
+const svg = document.querySelector('svg');
+const viewBox = {
+    x: -100,
+    y: -100,
+    w: 200,
+    h: 200
+}
+
+svg.setAttribute('viewBox', `${viewBox.x} ${viewBox.y} ${viewBox.w} ${viewBox.h}`)
+
 let pause = false;
 let thrustUp = false;
 let trustLeft = false; 
@@ -25,6 +35,11 @@ let i = 0;
 main = () => {
     if (pause) return;
     //main loop
+    viewBox.x -=5;
+    viewBox.y -=5;
+    viewBox.w +=10;
+    viewBox.h +=10;
+    svg.setAttribute('viewBox', `${viewBox.x} ${viewBox.y} ${viewBox.w} ${viewBox.h}`)
     i++
     if (i < maxCycles) setTimeout(main, 50)
 }
