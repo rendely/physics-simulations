@@ -1,11 +1,17 @@
 const universe = document.getElementById('universe');
 const svg = document.querySelector('svg');
-const rocket = document.getElementById('rocket');
+const rocketEl = document.getElementById('rocket');
+const rocket = {
+    el: rocketEl,
+    y: 0,
+    vy: 0
+}
+
 const viewBox = {
     x: -100,
     y: -100,
     w: 200,
-    h: 200
+    h: 400
 }
 
 svg.setAttribute('viewBox', `${viewBox.x} ${viewBox.y} ${viewBox.w} ${viewBox.h}`)
@@ -37,11 +43,15 @@ main = () => {
     if (pause) return;
     //main loop
     viewBox.x -=5;
-    viewBox.y -=5;
+    viewBox.y -=10;
     viewBox.w +=10;
     viewBox.h +=10;
     svg.setAttribute('viewBox', `${viewBox.x} ${viewBox.y} ${viewBox.w} ${viewBox.h}`)
-    rocket.style.transform= `translate(0,${-i*3}px) rotate(-${i}deg)`;
+    // rocket.el.style.transform= `translate(0,${-i*3}px) rotate(-${i}deg)`;
+    rocket.vy += .03;
+    rocket.y += rocket.vy;
+    rocket.el.querySelector('text').innerHTML = `${Math.round(rocket.vy*100)/100}`;
+    rocket.el.style.transform= `translate(0,${-rocket.y}px)`;
 
     i++
     if (i < maxCycles) setTimeout(main, 10)
