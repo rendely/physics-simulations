@@ -1,5 +1,6 @@
 const universe = document.getElementById('universe');
 const svg = document.querySelector('svg');
+const rocket = document.querySelector('polygon');
 const viewBox = {
     x: -100,
     y: -100,
@@ -40,8 +41,9 @@ main = () => {
     viewBox.w +=10;
     viewBox.h +=10;
     svg.setAttribute('viewBox', `${viewBox.x} ${viewBox.y} ${viewBox.w} ${viewBox.h}`)
+    rocket.style.transform= `translateY(${-i*3}px)`;
     i++
-    if (i < maxCycles) setTimeout(main, 50)
+    if (i < maxCycles) setTimeout(main, 10)
 }
 
 main()
